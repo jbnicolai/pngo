@@ -1,0 +1,58 @@
+{
+  "name": "pngo",
+  "version": "0.0.1",
+  "description": "PNG Optimizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 50000"
+  },
+  "bin": {
+    "pngo": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/1000ch/pngo.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [
+    "png",
+    "compress",
+    "minify",
+    "optimize",
+    "img",
+    "image"
+  ],
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "web": "http://github.com/1000ch"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1000ch/pngo/issues"
+  },
+  "homepage": "https://github.com/1000ch/pngo",
+  "dependencies": {
+    "advpng-bin": "^0.1.6",
+    "async": "^0.9.0",
+    "chalk": "^0.5.1",
+    "filesize": "^2.0.3",
+    "glob": "^4.0.5",
+    "minimist": "^1.1.0",
+    "optipng-bin": "^0.3.11",
+    "pngcrush-bin": "^0.1.18",
+    "pngquant-bin": "^0.3.5",
+    "rimraf": "^2.2.8",
+    "zopflipng-bin": "^0.1.12"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  },
+  "files": [
+    "cli.js",
+    "index.js",
+    "test"
+  ]
+}
