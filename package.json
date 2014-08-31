@@ -1,6 +1,6 @@
 {
   "name": "pngo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PNG Optimizer",
   "main": "index.js",
   "scripts": {
