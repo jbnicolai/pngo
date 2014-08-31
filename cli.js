@@ -17,10 +17,10 @@ argv._.filter(function (arg) {
   return fs.existsSync(arg);
 }).forEach(function (arg) {
   if (fs.statSync(arg).isFile()) {
-    pngs.push(arg);
+    pngs.push(path.resolve(arg));
   } else if (fs.statSync(arg).isDirectory()) {
     fs.readdirSync(arg).forEach(function(file) {
-      pngs.push(file);
+      pngs.push(path.resolve(path.join(arg, file)));
     });
   } else {
     glob(arg, function (error, files) {
@@ -28,7 +28,7 @@ argv._.filter(function (arg) {
         throw error;
       }
       files.forEach(function (file) {
-        pngs.push(file);
+        pngs.push(path.resolve(file));
       });
     });
   }
@@ -42,9 +42,9 @@ async.eachLimit(pngs, 10, function iterator(png) {
   new PNGO(png).optimize(function (error, data) {
     console.log(
       chalk.green('✔ ') + png,
-      chalk.gray(' before=') + chalk.yellow(filesize(data.before.size)),
-      chalk.gray(' after=') + chalk.cyan(filesize(data.after.size)),
-      chalk.gray(' reduced=') + chalk.green.underline(filesize(data.before.size - data.after.size))
+      chalk.gray(' before=') + chalk.yellow(filesize(data.beforeSize)),
+      chalk.gray(' after=') + chalk.cyan(filesize(data.afterSize)),
+      chalk.gray(' reduced=') + chalk.green.underline(filesize(data.beforeSize - data.afterSize))
     );
   });
 });

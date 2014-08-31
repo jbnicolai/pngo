@@ -75,8 +75,9 @@ PNGO.prototype.optimize = function (callback) {
 
   var callback = callback || function () {};
   var target = this.target;
-  var before = fs.statSync(target);
-  
+  var beforeSize = fs.statSync(target).size;
+  var afterSize = 0;
+
   var functions = this.optimizers.map(function (optimizer) {
     return function (callback) {
       execFile(optimizer.path, optimizer.args, function () {
@@ -86,9 +87,10 @@ PNGO.prototype.optimize = function (callback) {
   });
 
   async.series(functions, function (error, result) {
+    afterSize = fs.statSync(target).size;
     callback(error, {
-      before: before,
-      after: fs.statSync(target)
+      beforeSize: beforeSize,
+      afterSize: afterSize
     });
   });
 };
