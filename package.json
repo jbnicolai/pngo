@@ -41,11 +41,11 @@
     "filesize": "^2.0.3",
     "glob": "^4.0.5",
     "minimist": "^1.1.0",
-    "optipng-bin": "^0.3.11",
-    "pngcrush-bin": "^0.1.18",
-    "pngquant-bin": "^0.3.5",
+    "optipng-bin": "^1.0.1",
+    "pngcrush-bin": "^1.0.0",
+    "pngquant-bin": "^1.0.1",
     "rimraf": "^2.2.8",
-    "zopflipng-bin": "^0.1.12"
+    "zopflipng-bin": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^1.21.4"
